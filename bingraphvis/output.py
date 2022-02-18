@@ -214,7 +214,10 @@ class DotOutput(Output):
         
         if self.fname:
             dotfile = XDot(ret)
-            dotfile.write("{}.{}".format(self.fname, self.format), format=self.format)
+            # print(dotfile.to_string())
+            with open(self.fname+".dot", "w") as myfile:
+                myfile.write(dotfile.to_string())
+            # dotfile.write("{}.{}".format(self.fname, self.format), format=self.format)
 
 
 class DumpOutput(Output):
